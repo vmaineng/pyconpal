@@ -1,3 +1,4 @@
+import { use } from "react";
 import {Talk, ChatMessage, ChatResponse} from "../types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -30,6 +31,13 @@ export async function fetchTalks(params?: {
     return res.json();
 }
 
+export async function fetchTalkInsight(talkId: string): Promise<string> {
+  const res = await fetch(`${API_URL}/api/schedule/${talkId}/analyze`);
+  if (!res.ok) throw new Error("Failed to analyze talk");
+  const data = await res.json();
+  return data.insight;
+}
+
 export async function fetchAgenda(userId: string) : Promise<Talk[]> {
     const res = await fetch(`${API_URL}/api/agenda/${userId}`);
     if (!res.ok) throw new Error("Failed to fetch agenda");
@@ -42,7 +50,7 @@ export async function addToAgenda(userId: string, talkId: number):Promise<void> 
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ talk_id: talkId }),
+        body: JSON.stringify({ user_id: userId, talk_Id: talkId }),
     });
     if (!res.ok) throw new Error("Failed to add to agenda");
 }

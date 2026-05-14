@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Talk } from "../types";
+import { addToAgenda, removeFromAgenda, fetchTalkInsight } from "../lib/api";
 import {
   Clock,
   MapPin,
