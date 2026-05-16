@@ -87,17 +87,7 @@ export default function Chat({ userId, interests }: ChatProps) {
               }`}
             >
               {msg.role === "assistant" ? (
-                <div
-                  className="prose prose-invert prose-sm max-w-none 
-  prose-p:my-2 prose-p:leading-relaxed
-  prose-ul:my-2 prose-li:my-1
-  prose-h1:text-base prose-h1:font-bold prose-h1:mt-4 prose-h1:mb-2 prose-h1:text-[#a89cf7]
-  prose-h2:text-sm prose-h2:font-semibold prose-h2:mt-4 prose-h2:mb-2 prose-h2:text-[#a89cf7]
-  prose-h3:text-sm prose-h3:font-medium prose-h3:mt-3 prose-h3:mb-1 prose-h3:text-white/70
-  prose-strong:text-white prose-strong:font-semibold
-  prose-hr:border-white/10 prose-hr:my-3
-  prose-code:bg-white/8 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[#a89cf7]"
-                >
+                <div className="prose prose-invert prose-sm max-w-none prose-p:my-1 prose-ul:my-1 prose-li:my-0.5">
                   <ReactMarkdown>{msg.content}</ReactMarkdown>
                 </div>
               ) : (
