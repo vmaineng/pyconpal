@@ -9,7 +9,7 @@ app = FastAPI(title="PyConPal API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://*.vercel.app", "https://pyconpal-p1kof8vd4-vmainengs-projects.vercel.app/"],
+    allow_origins=["http://localhost:3000", "https://*.vercel.app", "https://pyconpal-p1kof8vd4-vmainengs-projects.vercel.app/", "https://pyconpal.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
