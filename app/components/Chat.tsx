@@ -134,8 +134,8 @@ export default function Chat({ userId, interests }: ChatProps) {
         </div>
       )}
 
-      <div>
-        <div>
+      <div className="p-4 border-t border-white/8">
+        <div className="flex gap-2 bg-[#0f1117] border border-white/10 rounded-2xl px-4 py-2 focus-within:border-[#7c6af7]/40 transition-colors">
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
