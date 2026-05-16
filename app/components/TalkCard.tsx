@@ -1,4 +1,4 @@
-"use cilent";
+"use client";
 
 import { useState } from "react";
 import { Talk } from "../types";
@@ -25,10 +25,10 @@ const TRACK_COLORS: Record<string, string> = {
 };
 
 const DIFF_COLORS: Record<string, string> = {
-  Beginner: "bg-green-500/20 text-green-300 border-green-500/30",
-  Intermediate: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
-  Advanced: "bg-red-500/20 text-red-300 border-red-500/30",
-  All_levels: "bg-gray-500/20 text-gray-300 border-gray-500/30",
+  beginner: "bg-green-500/20 text-green-300 border-green-500/30",
+  intermediate: "bg-yellow-500/20 text-yellow-300 border-yellow-500/30",
+  advanced: "bg-red-500/20 text-red-300 border-red-500/30",
+  all: "bg-gray-500/20 text-gray-300 border-gray-500/30",
 };
 
 interface TalkCardProps {
