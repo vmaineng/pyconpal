@@ -44,7 +44,7 @@ export async function fetchAgenda(userId: string) : Promise<Talk[]> {
     return res.json();
 }
 
-export async function addToAgenda(userId: string, talkId: number):Promise<void> {
+export async function addToAgenda(userId: string, talkId: string):Promise<void> {
     const res = await fetch(`${API_URL}/api/agenda/${userId}/add`, {
         method: "POST",
         headers: {
