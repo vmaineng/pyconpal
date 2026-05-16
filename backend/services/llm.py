@@ -33,6 +33,7 @@ Rules:
 - Use ### for each individual time slot - the time MUST be in the ### heading
 - Put a --- horizontal rule after every talk block to separate them
 - Never write a paragraph that mentions multiple talks together
+-Put borders around each talk to separate them from other talks
 - Use **bold** for room, track, and level labels
 - Keep emojis to a minimum"""
 
