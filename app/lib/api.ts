@@ -1,4 +1,4 @@
-import {Talk, ChatMessage, ChatResponse} from "../types";
+import {Talk, ChatMessage, ChatResponse, AuthResponse} from "../types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -76,4 +76,38 @@ export async function generateDayPlan(
     if (!res.ok) throw new Error("Failed to generate day plan");
     const data = await res.json();
     return data.plan;
+}
+
+export async function signUp(email: string, password: string): Promise<AuthResponse> {
+    const res = await fetch(`${API_URL}/api/auth/signup`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+    });
+    if (!res.ok) throw new Error("Signup failed");
+    return res.json();
+}
+
+export async function logIn(email: string, password: string): Promise<AuthResponse> {
+    const res = await fetch(`${API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+    });
+    if (!res.ok) throw new Error("Login failed");
+    return res.json();
+}
+
+export function signOut():void {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
+
+}
+
+export function getToken(): string | null {
+    return localStorage.getItem("token");
 }
