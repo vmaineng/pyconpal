@@ -1,4 +1,3 @@
-import { use } from "react";
 import {Talk, ChatMessage, ChatResponse} from "../types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
@@ -50,7 +49,7 @@ export async function addToAgenda(userId: string, talkId: string):Promise<void> 
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: userId, talk_Id: talkId }),
+        body: JSON.stringify({ user_id: userId, talk_id: talkId }),
     });
     if (!res.ok) throw new Error("Failed to add to agenda");
 }
@@ -59,9 +58,10 @@ export async function removeFromAgenda(
   userId: string,
   talkId: string
 ): Promise<void> {
-  await fetch(`${API_URL}/api/agenda/${userId}/${talkId}`, {
+  const res = await fetch(`${API_URL}/api/agenda/${userId}/${talkId}`, {
     method: "DELETE",
   });
+  if (!res.ok) throw new Error("Failed to remove from agenda");
 }
 export async function generateDayPlan(
     interests: string,
