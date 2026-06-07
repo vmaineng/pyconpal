@@ -80,7 +80,7 @@ SUPABASE_ANON_KEY=
 
 ---
 
-## Known Limitations & What I'd Improve
+## What I'd Improve
 
 - **No auth yet** — agendas are session-based and don't persist on 
   refresh. Supabase Auth is already in the stack; this would be the 
